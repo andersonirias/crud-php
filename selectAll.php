@@ -3,15 +3,27 @@
   $server = "localhost";
   $user = "root";
   $password = "irias";
-  $db = "exemplos";
+  $db = "examples";
 
   $connection = new mysqli($server, $user, $password, $db);
 
-  if ($connection->connect_error)
-    die($connection->connect_error);
+  if ($connection->connect_error) {
 
-  $sql = "SELECT id, name, email, phone FROM users";
+    print_r($connection->connect_error);
+    exit();
+
+  }
+
+  $sql = "SELECT id, name, email, phone FROM people";
   $result = $connection->query($sql);
+
+  if ($result == false) {
+
+    print_r($connection->error);
+    $connection->close();
+    exit();
+
+  }
 
   if ($result->num_rows > 0) {
 
@@ -21,8 +33,11 @@
       array_push($data,$row);
     }
 
-  } 
+  }
 
+  print_r($data); 
+  
+  $result->close();
   $connection->close();
 
 ?>
