@@ -2,7 +2,7 @@
 
   $server = "localhost";
   $user = "root";
-  $password = "irias";
+  $password = "";
   $db = "examples";
 
   $connection = new mysqli($server, $user, $password, $db);
@@ -14,9 +14,9 @@
 
   }
 
-  $name  = $connection->real_escape_string("Teste");
-  $email = $connection->real_escape_string("teste@teste.com");
-  $phone = $connection->real_escape_string("(31) 3211-7777");
+  $name  = $connection->real_escape_string("Name");
+  $email = $connection->real_escape_string("email@email.com");
+  $phone = $connection->real_escape_string("(31) 3333-3333");
 
   $stmt = $connection->prepare("INSERT INTO people (name, email, phone) VALUES (?, ?, ?)");
 

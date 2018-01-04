@@ -2,7 +2,7 @@
 
   $server = "localhost";
   $user = "root";
-  $password = "irias";
+  $password = "";
   $db = "examples";
 
   $connection = new mysqli($server, $user, $password, $db);
@@ -14,10 +14,10 @@
  
   }
   
-  $name  = $connection->real_escape_string("Teste 3");
-  $phone = $connection->real_escape_string("(31) 3211-7777");
-  $email = $connection->real_escape_string("teste@teste.com");
-  $id = intval(3);
+  $name  = $connection->real_escape_string("Name");
+  $phone = $connection->real_escape_string("(31) 3333-3333");
+  $email = $connection->real_escape_string("email@email.com");
+  $id = intval(1);
 
   $stmt = $connection->prepare("UPDATE people set name = ?, phone = ?, email = ? WHERE id = ?");
 

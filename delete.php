@@ -2,7 +2,7 @@
   
   $server = "localhost";
   $user = "root";
-  $password = "irias";
+  $password = "";
   $db = "examples";
 
   $connection = new mysqli($server, $user, $password, $db);
@@ -14,7 +14,7 @@
 
   }
 
-  $id = intval(3);
+  $id = intval(1);
 
   $stmt = $connection->prepare("DELETE FROM people WHERE id = ?");
 
