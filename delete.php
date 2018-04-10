@@ -7,12 +7,8 @@
 
   $connection = new mysqli($server, $user, $password, $db);
 
-  if ($connection->connect_error) {
-
-    print_r($connection->connect_error);
-    exit();
-
-  }
+  if ($connection->connect_error)
+    die($connection->connect_error);
 
   $id = intval(1);
 
