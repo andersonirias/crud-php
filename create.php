@@ -2,7 +2,7 @@
 
   $server = "localhost";
   $user = "root";
-  $password = "irias";
+  $password = "";
   $db = "examples";
 
   $connection = new mysqli($server, $user, $password, $db);
