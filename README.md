@@ -1,2 +1,2 @@
 # crud-php
-Create, Read, Update, and Delete. PHP + MYSQL.
+Create, Read, Update, and Delete. PHP + MySQL and PHP + PostgreSQL.
