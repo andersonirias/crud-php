@@ -2,17 +2,13 @@
 
   $server = "localhost";
   $user = "root";
-  $password = "";
+  $password = "irias";
   $db = "examples";
 
   $connection = new mysqli($server, $user, $password, $db);
 
-  if ($connection->connect_error) {
-    
-    print_r($connection->connect_error);
-    exit();
-
-  }
+  if ($connection->connect_error)
+    die($connection->connect_error);
 
   $name  = $connection->real_escape_string("Name");
   $email = $connection->real_escape_string("email@email.com");
