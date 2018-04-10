@@ -7,37 +7,27 @@
 
   $connection = new mysqli($server, $user, $password, $db);
 
-  if ($connection->connect_error) {
+  if ($connection->connect_error)
+    die($connection->connect_error);
 
-    print_r($connection->connect_error);
-    exit();
+  $id = intval(1);
 
-  }
+  $stmt = $connection->prepare("SELECT id, name, email, phone FROM people WHERE id = ?");
 
-  $sql = "SELECT id, name, email, phone FROM people";
-  $result = $connection->query($sql);
-
-  if ($result == false) {
-
-    print_r($connection->error);
-    $connection->close();
-    exit();
-
-  }
-
-  if ($result->num_rows > 0) {
-
-    $data = [];
-
-    while($row = $result->fetch_assoc()) {
-      array_push($data,$row);
-    }
-
-  }
-
-  print_r($data); 
+  $stmt->bind_param("i", $id);
+  $stmt->execute();
+  $stmt->bind_result($id, $name, $email, $phone);
   
-  $result->close();
+  while ($stmt->fetch()) {
+
+    print_r($id); 
+    print_r($name); 
+    print_r($email); 
+    print_r($phone); 
+
+  }
+  
+  $stmt->close();
   $connection->close();
 
 ?>
